@@ -3,9 +3,9 @@ import java.util.*;
 
 public class AdressBook {
 
-    private Map book;
+    private HashMap book;
 
-    public AdressBook(HashMap data){
+    public AdressBook(HashMap book){
         this.book = book;
     }
 
@@ -34,8 +34,8 @@ public class AdressBook {
         List values = new ArrayList(book.values());
         String answer = "";
         for (int i = 0; i < values.size(); i++){
-            if (values.get(i).toString().split(",")[0] == street){
-                answer += keys.get(i).toString() + ", ";
+            if (values.get(i).toString().split(",")[0].equals(street)){
+                answer += keys.get(i).toString() + ' ';
             }
         }
         return answer;
@@ -46,8 +46,8 @@ public class AdressBook {
         List values = new ArrayList(book.values());
         String answer = "";
          for (int i = 0; i < values.size(); i++){
-             if (values.get(i).toString().split(",")[1] == house){
-                answer += keys.get(i).toString() + ", ";
+             if (values.get(i).toString().split(",")[1].equals(house)){
+                answer += keys.get(i).toString() + ' ';
              }
          }
          return answer;
