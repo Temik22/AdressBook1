@@ -13,7 +13,6 @@ class AdressBookTest {
     @Test
     void add() {
         testData.add("Temik", "1,1,1");
-        //assertEquals(HashMap("Temik","1,1,1"), );
 
     }
 
@@ -21,7 +20,6 @@ class AdressBookTest {
     void delete() {
         testData.add("Temik", "1,1,1");
         testData.add("Dmitry","1,1,1");
-        //`assertEquals(HashMap("Dmitry","1,1,1"), testData.delete("Temik") );
     }
 
     @Test
@@ -36,10 +34,15 @@ class AdressBookTest {
     void peopleOnStreet() {
         testData.add("Dmitry","1,1,1");
         testData.add("Temik","1,2,1");
+        testData.add("Geka", "2,3,6");
         assertEquals("Dmitry Temik ", testData.peopleOnStreet("1"));
     }
 
     @Test
     void peopleInHouse() {
+        testData.add("Dmitry","1,1,1");
+        testData.add("Temik","1,2,1");
+        testData.add("Geka", "2,3,6");
+        assertEquals("Dmitry Temik ", testData.peopleOnStreet("1"));
     }
 }
