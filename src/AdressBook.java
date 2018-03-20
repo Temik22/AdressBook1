@@ -1,7 +1,7 @@
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 
 
 public class AdressBook {
@@ -12,8 +12,13 @@ public class AdressBook {
         this.book = book;
     }
 
-    public Map add(String name, String adress) {            //Adding new people in Book
-        book.put(name, adress);
+    public Map add(String name, String adress) {        //Adding new people in Book
+        if (book.containsKey(name)){
+            throw new IllegalArgumentException("This name is already im book");
+        }
+        else {
+            book.put(name, adress);
+        }
         return book;
     }
 
@@ -40,7 +45,7 @@ public class AdressBook {
     }
 
     public List<String> peopleOnStreet(String find) {               //Return List of all people that live on that street
-        List answer = null;
+        List answer = new ArrayList();
         for (Map.Entry<String, String> entry: book.entrySet()) {
             if(entry.getValue().split(",")[0].equals(find)){
                 answer.add(entry.getKey());
@@ -50,7 +55,7 @@ public class AdressBook {
     }
 
     public List<String> peopleInHouse(String find) {            //Return List of al people that live in that house
-        List answer = null;
+        List answer = new ArrayList();
         for (Map.Entry<String, String> entry: book.entrySet()) {
             if(entry.getValue().split(",")[1].equals(find)){
                 answer.add(entry.getKey());
