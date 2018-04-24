@@ -6,7 +6,7 @@ import java.util.Objects;
 
 public class AdressBook {
 
-    private Map<String, String> book;
+    private Map<String, Address> book;
 
     public AdressBook(Map book) {
         this.book = book;
@@ -17,7 +17,8 @@ public class AdressBook {
             throw new IllegalArgumentException("This name is already im book");
         }
         else {
-            book.put(name, adress);
+            Address temp = new Address(adress);
+            book.put(name, temp);
         }
         return book;
     }
@@ -29,7 +30,8 @@ public class AdressBook {
 
     public Map newAdress(String name, String adress) {          //Changing address for man
         if (book.containsKey(name)) {
-            book.put(name, adress);
+            Address temp = new Address(adress);
+            book.put(name, temp);
         } else {
             throw new IllegalArgumentException("Invalid Name");
         }
@@ -38,7 +40,7 @@ public class AdressBook {
 
     public String getAdress(String name) {              //Get address by man
         if (book.containsKey(name)) {
-            return book.get(name);
+            return book.get(name).toString();
         } else {
             throw new IllegalArgumentException("Invalid name");
         }
@@ -46,8 +48,8 @@ public class AdressBook {
 
     public List<String> peopleOnStreet(String find) {               //Return List of all people that live on that street
         List answer = new ArrayList();
-        for (Map.Entry<String, String> entry: book.entrySet()) {
-            if(entry.getValue().split(",")[0].equals(find)){
+        for (Map.Entry<String, Address> entry: book.entrySet()) {
+            if(entry.getValue().getStreet().equals(find)){
                 answer.add(entry.getKey());
             }
         }
@@ -56,8 +58,8 @@ public class AdressBook {
 
     public List<String> peopleInHouse(String find) {            //Return List of al people that live in that house
         List answer = new ArrayList();
-        for (Map.Entry<String, String> entry: book.entrySet()) {
-            if(entry.getValue().split(",")[1].equals(find)){
+        for (Map.Entry<String, Address> entry: book.entrySet()) {
+            if(entry.getValue().getHouse().equals(find)){
                 answer.add(entry.getKey());
             }
         }
