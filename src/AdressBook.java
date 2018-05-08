@@ -46,7 +46,7 @@ public class AdressBook {
     }
 
     public List<String> peopleOnStreet(String find) {               //Return List of all people that live on that street
-        List answer = new ArrayList();
+        List answer = new ArrayList<String>();
         for (Map.Entry<String, Address> entry : book.entrySet()) {
             if (entry.getValue().getStreet().equals(find)) {
                 answer.add(entry.getKey());
@@ -56,7 +56,7 @@ public class AdressBook {
     }
 
     public List<String> peopleInHouse(String find) {            //Return List of al people that live in that house
-        List answer = new ArrayList();
+        List answer = new ArrayList<String>();
         for (Map.Entry<String, Address> entry : book.entrySet()) {
             if (entry.getValue().getHouse().equals(find)) {
                 answer.add(entry.getKey());

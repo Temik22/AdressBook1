@@ -65,6 +65,6 @@ class AdressBookTest {
         testData.add("Dmitry","1,1,1");
         testData.add("Temik","1,2,1");
         testData.add("Geka", "2,3,6");
-        assertEquals(answer, testData.peopleOnStreet("1"));
+        assertEquals(answer, testData.peopleInHouse("1"));
     }
 }
