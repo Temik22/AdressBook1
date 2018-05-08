@@ -19,7 +19,7 @@ public class Address {
 
     @Override
     public String toString() {
-        StringBuilder string = new StringBuilder();
+        StringBuilder  string = new StringBuilder();
         string.append(street + "," + house + "," + flat);
         return string.toString();
     }
