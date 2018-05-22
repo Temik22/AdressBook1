@@ -9,18 +9,21 @@ public class Address {
         flat = temp[2];
     }
 
-    public static String getStreet() {
+    public String getStreet() {
         return street;
     }
 
-    public static String getHouse() {
+    public String getHouse() {
         return house;
     }
 
     @Override
     public String toString() {
-        StringBuilder  string = new StringBuilder();
-        string.append(street + "," + house + "," + flat);
-        return string.toString();
+        return street + "," + house + "," + flat;
+    }
+
+    @Override
+    public boolean equals(Object o){
+        return this.toString().equals(o.toString());
     }
 }
