@@ -1,6 +1,6 @@
 public class Address {
 
-    private static String street, house, flat;
+    private String street, house, flat;
 
     public Address(String input) {
         String[] temp = input.split(",");
@@ -23,7 +23,7 @@ public class Address {
     }
 
     @Override
-    public boolean equals(Object o){
+    public boolean equals(Object o) {
         return this.toString().equals(o.toString());
     }
 }
